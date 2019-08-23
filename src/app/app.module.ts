@@ -1,11 +1,23 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule, Routes } from '@angular/router';
 import { translationChunksConfig, translations } from '@spartacus/assets';
-import { B2cStorefrontModule } from '@spartacus/storefront';
+import { B2cStorefrontModule, CmsPageGuard } from '@spartacus/storefront';
+import { MyPageComponent } from 'src/my-page/my-page.component';
+import { StaticPageLayoutComponent } from 'src/static-page-layout/static-page-layout.component';
 import { AppComponent } from './app.component';
 
+const appRoutes: Routes = [
+  {
+    path: 'my',
+    canActivate: [CmsPageGuard],
+    data: { pageLabel: 'faq' },
+    component: MyPageComponent
+  }
+];
+
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, MyPageComponent, StaticPageLayoutComponent],
   imports: [
     BrowserModule,
     B2cStorefrontModule.withConfig({
@@ -28,9 +40,14 @@ import { AppComponent } from './app.component';
         chunks: translationChunksConfig,
         fallbackLang: 'en'
       }
-    })
+    }),
+    RouterModule.forRoot(
+      appRoutes,
+      { enableTracing: true } // <-- debugging purposes only
+    )
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule {}
