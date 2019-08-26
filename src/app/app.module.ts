@@ -6,6 +6,7 @@ import { B2cStorefrontModule, CmsPageGuard } from '@spartacus/storefront';
 import { MyPageComponent } from 'src/my-page/my-page.component';
 import { StaticPageLayoutComponent } from 'src/static-page-layout/static-page-layout.component';
 import { AppComponent } from './app.component';
+import { CopyrightComponent } from './copyright/copyright.component';
 
 const appRoutes: Routes = [
   {
@@ -17,7 +18,12 @@ const appRoutes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, MyPageComponent, StaticPageLayoutComponent],
+  declarations: [
+    AppComponent,
+    MyPageComponent,
+    StaticPageLayoutComponent,
+    CopyrightComponent
+  ],
   imports: [
     BrowserModule,
     B2cStorefrontModule.withConfig({
@@ -39,6 +45,11 @@ const appRoutes: Routes = [
         resources: translations,
         chunks: translationChunksConfig,
         fallbackLang: 'en'
+      },
+      cmsComponents: {
+        CopyrightComponent: {
+          component: CopyrightComponent
+        }
       }
     }),
     RouterModule.forRoot(
@@ -46,6 +57,7 @@ const appRoutes: Routes = [
       { enableTracing: true } // <-- debugging purposes only
     )
   ],
+  entryComponents: [CopyrightComponent],
   providers: [],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
