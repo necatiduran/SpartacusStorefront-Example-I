@@ -8,7 +8,7 @@ import { MyPageComponent } from './my-page.component';
 
 // const routes: Routes = [
 //   {
-//     path: 'my',
+//     path: 'mycustompage',
 //     canActivate: [CmsPageGuard],
 //     data: { pageLabel: 'faq' },
 //     component: MyPageComponent

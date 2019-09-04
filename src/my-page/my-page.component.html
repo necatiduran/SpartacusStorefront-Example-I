@@ -1,16 +1,16 @@
 <app-y-static-page-layout>
-  <h2 class="y-page__title">Specific My page subtitle</h2>
-  <y-dynamic-slot [position]="'Section1'"></y-dynamic-slot>
+  <h2 class="cx-page-title">Specific My page subtitle</h2>
+  <cx-page-slot [position]="'Section1'"></cx-page-slot>
 
-  <div class="y-landing-page-layout__container">
-    <y-dynamic-slot [position]="'Section2A'" class="y-landing-page-layout__slot-2"></y-dynamic-slot>
-    <y-dynamic-slot [position]="'Section2B'" class="y-landing-page-layout__slot-2"></y-dynamic-slot>
+  <div class="cx-landing-page-layout-container">
+    <cx-page-slot [position]="'Section2A'" class="cx-landing-page-layout__slot-2"></cx-page-slot>
+    <cx-page-slot [position]="'Section2B'" class="cx-landing-page-layout__slot-2"></cx-page-slot>
   </div>
 
-  <y-dynamic-slot [position]="'Section2C'"></y-dynamic-slot>
-  <y-dynamic-slot [position]="'Section3'"></y-dynamic-slot>
+  <cx-page-slot [position]="'Section2C'"></cx-page-slot>
+  <cx-page-slot [position]="'Section3'"></cx-page-slot>
 
-  <y-dynamic-slot [position]="'Section4'" class="y-landing-page-layout__slot-4"></y-dynamic-slot>
-  <y-dynamic-slot [position]="'Section5'"></y-dynamic-slot>
+  <cx-page-slot [position]="'Section4'" class="cx-landing-page-layout__slot-4"></cx-page-slot>
+  <cx-page-slot [position]="'Section5'"></cx-page-slot>
 
 </app-y-static-page-layout>

@@ -26,7 +26,6 @@ export class CopyrightComponent {
 
   constructor(private comp: CmsComponentData<ICopyrightComponent>) {
     this.comp.data$.forEach(element => {
-      // console.log(element.template);
       this.component = element;
     });
   }
@@ -36,7 +35,6 @@ export class CopyrightComponent {
   }
 
   public getText(): string {
-    console.log('Here copyright');
     return this.component.template.replace(
       '${currentYear}',
       new Date().getFullYear().toString()
